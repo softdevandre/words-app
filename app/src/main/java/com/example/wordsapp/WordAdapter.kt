@@ -26,9 +26,10 @@ import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.Button
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
+import com.example.wordsapp.WordListFragment.Companion.SEARCH_PREFIX
 
 /**
- * Adapter for the [RecyclerView] in [DetailActivity].
+ * Adapter for the [RecyclerView] in [WordListFragment].
  */
 class WordAdapter(private val letterId: String, context: Context) :
     RecyclerView.Adapter<WordAdapter.WordViewHolder>() {
@@ -86,7 +87,7 @@ class WordAdapter(private val letterId: String, context: Context) :
 
         // Intent to show the definition of the word through google search
         holder.button.setOnClickListener {
-            val queryUrl: Uri = Uri.parse("${DetailActivity.SEARCH_PREFIX}${item}")
+            val queryUrl: Uri = Uri.parse("${SEARCH_PREFIX}${item}")
             val intent = Intent(Intent.ACTION_VIEW, queryUrl)
             context.startActivity(intent)
         }
